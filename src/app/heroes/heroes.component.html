@@ -1,13 +1,23 @@
 <h2>My Heroes</h2>
+<div>
+    <label for="new-hero">Hero name: </label>
+    <input id="new-hero" #heroName />
+  
+    <!-- (click) passes input value to add() and then clears the input -->
+    <button type="button" class="add-button" (click)="add(heroName.value); heroName.value=''">
+      Add hero
+    </button>
+</div>
 <ul class="heroes">
     <!--*ngFor defines some directive inside the tags.-->
     <!--Asterisk indicate to Angular that the directive will be expanded before processing-->
     <li *ngFor="let hero of heroes">
-            <!--If the hero object is equal to selectedHero, enable the sheet for class.selected.-->
         <a routerLink="/detail/{{hero.id}}">
-        <span class="badge">{{hero.id}}</span>
-        <span class="name">{{hero.name}}</span>
+        <span class="badge">{{hero.id}}</span> {{hero.name}}
+        <!--if moved in, buttons inside will be registered alongside the link (or just not fire entirely)-->
         </a>
+        <button type="button" class="delete" title="delete hero"
+  (click)="delete(hero)">x</button>
+        <!--button type = "button" class = "delete" title = "delete hero" (click) = "delete(hero)">x</button-->
     </li>
 </ul>
-<!--[] indicates one way data binding; data at selectHero is copied into the hero in the hero-detail component-->

@@ -11,16 +11,28 @@ import { HeroService } from '../hero.service';
 
 
 export class HeroDetailComponent {
+
+  
+  @Input() hero ?: Hero;//Denote hero is an input
+
   ngOnInit(): void {
     this.getHero();
   }
-  
-  @Input() hero ?: Hero;
+
   constructor(private loc :Location, private r:ActivatedRoute, private hService :HeroService){}
+
   getHero():void{
+    console.log("Found hero!");
     const id = Number(this.r.snapshot.paramMap.get('id'));
-    this.hService.getHero(id).subscribe( (hero) => {this.hero = hero});
+    this.hService.getHero(id).subscribe( (hero) => {this.hero = hero;});
   }
+
+  save():void{
+    if(this.hero != undefined){
+      this.hService.updateHero(this.hero).subscribe(()=>this.goBack());
+    }
+  }
+
   goBack():void{
     this.loc.back();
   }
