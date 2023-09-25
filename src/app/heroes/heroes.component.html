@@ -1,0 +1,13 @@
+<h2>My Heroes</h2>
+<ul class="heroes">
+    <!--*ngFor defines some directive inside the tags.-->
+    <!--Asterisk indicate to Angular that the directive will be expanded before processing-->
+    <li *ngFor="let hero of heroes">
+            <!--If the hero object is equal to selectedHero, enable the sheet for class.selected.-->
+        <a routerLink="/detail/{{hero.id}}">
+        <span class="badge">{{hero.id}}</span>
+        <span class="name">{{hero.name}}</span>
+        </a>
+    </li>
+</ul>
+<!--[] indicates one way data binding; data at selectHero is copied into the hero in the hero-detail component-->

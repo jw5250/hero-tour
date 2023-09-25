@@ -1,0 +1,48 @@
+/* Application-wide Styles */
+h1 {
+  color: #369;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 250%;
+}
+h2, h3 {
+  color: #444;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: lighter;
+}
+body {
+  margin: 2em;/*2x that of the relative to the font size of the element*/
+}
+/*body, input of type "text", and button CSS*/
+body, input[type="text"], button {
+  color: #333;
+  /*Cambria, then Georgia, then serif*/
+  font-family: Cambria, Georgia, serif;
+}
+button {
+  background-color: #eee;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  color: black;
+  font-size: 1.2rem;
+  padding: 1rem;/*Some space inside the border*/
+  margin-right: 1rem;/*Some space outside the border*/
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+}
+/*Button when is hovered over*/
+button:hover {
+  background-color: black;
+  color: white;
+}
+  /*Button when is disabled*/
+button:disabled {
+  background-color: #eee;
+  color: #aaa;
+  cursor: auto;
+}
+
+/* x * means all elements within tag of type x (without, just does whole page) */
+* {
+  font-family: Arial, Helvetica, sans-serif;
+}
